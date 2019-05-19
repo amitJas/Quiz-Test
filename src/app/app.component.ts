@@ -6,6 +6,7 @@ import { ApiServiceService } from './service/api-service.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
 
   public finish = false
@@ -14,11 +15,12 @@ export class AppComponent {
 
   ngOnInit() {
     
-    fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple').then( res => {
+    //get the questions from free API trivia
+    fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple').then( res => {
       return res.json()
-    }).then( lode => {
-      this.api.questions = lode.results
-      this.api.numOfQustion = lode.results.length -1
+    }).then( loader => {
+      this.api.questions = loader.results
+      this.api.numOfQustion = loader.results.length -1
     }).then( () => {
       setTimeout(() => {
         this.finish = true

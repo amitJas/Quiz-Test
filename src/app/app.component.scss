@@ -1,5 +1,5 @@
 $app-background: rgb(38, 0, 255);
-
+$text-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 main{
     background-color:$app-background;
@@ -10,8 +10,13 @@ main{
     div{
         background-color: white;
         padding: 20px;
+        font-family: $text-font;
+       
     }
 
+    #welcome{
+        font-size: 30px;
+    }
 
 }
 

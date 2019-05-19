@@ -9,6 +9,8 @@ import { ApiServiceService } from '../../service/api-service.service'
 
 export class QuizComponent implements OnInit {
 
+  
+
   constructor(public api: ApiServiceService) { }
 
   ngOnInit() {

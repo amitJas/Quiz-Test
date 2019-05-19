@@ -9,27 +9,25 @@ export class ApiServiceService {
   constructor() { }
   
   
-  public correctNum 
-  public questions
-  public answers:any
+  private correctNum   // random index for the correct answer
+  public questions : any   
+  public answers : any
   public countQuestions =  0
   public question = null
   public ansuewrArr = []
   public numOfQustion =  0;
   public done = false
-  public scor = 0
+  public score = 0
   public countCurrectAnswer = 0
   public userAnswer = null
   public FORWARD = true; BACKWARD = false
-  public showScor = false
+  public showScore = false
   public lastQuestionNotifier: Subject<void> = new Subject<void>()
  
 
   getQustion(index,direction){
 
-    if(index == this.numOfQustion  ){
-      
-    }else{
+    if(index < this.numOfQustion + 1 ){
       this.correctNum = Math.floor(Math.random() * 3)  
       this.question = this.questions[index].question
       this.answers = this.questions[index].incorrect_answers
@@ -53,12 +51,6 @@ export class ApiServiceService {
     this.countQuestions++
     this.getQustion(this.countQuestions,this.FORWARD)
     this.checkIfSet()
-
-    console.log('in set api => countQustions , numOfQustion',this.countQuestions,this.numOfQustion)
-    if(this.countQuestions >= this.numOfQustion   ){
-      this.done = true
-      this.lastQuestionNotifier.next()
-    }
   }
 
   checkIfSet(){
@@ -69,6 +61,8 @@ export class ApiServiceService {
   }
 
   saveAnsuewr(radioNum){
+
+    //remove from answerarry
     this.ansuewrArr = this.ansuewrArr.filter(item => item.questionNum != this.countQuestions)
     this.ansuewrArr.push({
       questionNum: this.countQuestions,
@@ -81,8 +75,7 @@ export class ApiServiceService {
   }
 
   calculateScour(){
-    this.scor = Math.round(this.countCurrectAnswer/this.numOfQustion) * 100 ; 
-    return true
+    this.score = Math.round(this.countCurrectAnswer/this.numOfQustion + 1 ) * 100 ; 
   }
   
 }

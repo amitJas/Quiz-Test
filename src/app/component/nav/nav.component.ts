@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
 
   public next = 'NEXT'
   private subscription: Subscription
+ 
 
   constructor(public api: ApiServiceService) { }
 
@@ -22,7 +23,7 @@ export class NavComponent implements OnInit {
   goToLastQuestion() {
     this.next = 'DONE'
     this.api.calculateScour()
-    this.api.showScor = true
+    
   }
 
   ngOnDestroy() {
@@ -31,6 +32,15 @@ export class NavComponent implements OnInit {
 
   goNext() {
     this.api.navigatForward()
+
+    if(this.api.countQuestions == this.api.numOfQustion )  
+    {
+      this.next = 'DONE'
+      this.api.calculateScour()
+    }
+    if(this.api.countQuestions > this.api.numOfQustion )  
+      this.api.showScore = true
+    
   }
   
   goBack(){

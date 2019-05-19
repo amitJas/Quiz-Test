@@ -1,6 +1,6 @@
 <router-outlet>
     <main> 
-        <div  *ngIf='!finish' > WELCOME PLAYER !!</div>
+        <div id='welcome' *ngIf='!finish' > WELCOME PLAYER !!</div>
         <div id='app' *ngIf='finish' >
             <app-nav></app-nav>
             <app-quiz></app-quiz>
