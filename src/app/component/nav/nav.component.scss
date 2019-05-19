@@ -1,0 +1,17 @@
+$text-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+nav{
+
+    padding: 15px 0px 20px 0px;
+
+    button{
+        font-family: $text-font;
+        color: rgb(238, 6, 18);
+        font-size: 20px
+    }
+    
+    #next{
+        float: right;
+    }
+}
+

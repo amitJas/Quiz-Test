@@ -1,0 +1,12 @@
+<main>
+  <div id='question' > {{api.question }} </div>
+  <div id='answer' *ngFor='let answer of api.answers; let i = index' >
+    <input  
+      type="radio" 
+      name="answer"
+      [checked]="api.userAnswer == i"
+      (click) = 'setAnswer(i)' >
+   <label> {{answer}} </label>
+  </div>
+  <h1 *ngIf='api.showScor'> Your score is {{api.scor}}</h1>
+</main>
