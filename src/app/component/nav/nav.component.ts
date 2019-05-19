@@ -17,28 +17,24 @@ export class NavComponent implements OnInit {
   constructor(public api: ApiServiceService) { }
 
   ngOnInit() {
-   this.subscription = this.api.lastQuestionNotifier.subscribe(() => this.goToLastQuestion())
+  
   }
 
   goToLastQuestion() {
     this.next = 'DONE'
-    this.api.calculateScour()
+    this.api.calculateScore()
     
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe()
   }
 
   goNext() {
     this.api.navigatForward()
 
-    if(this.api.countQuestions == this.api.numOfQustion )  
+    if(this.api.countQuestions == this.api.numOfQuestion )  
     {
       this.next = 'DONE'
-      this.api.calculateScour()
+      this.api.calculateScore()
     }
-    if(this.api.countQuestions > this.api.numOfQustion )  
+    if(this.api.countQuestions > this.api.numOfQuestion )  
       this.api.showScore = true
     
   }

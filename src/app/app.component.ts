@@ -20,7 +20,7 @@ export class AppComponent {
       return res.json()
     }).then( loader => {
       this.api.questions = loader.results
-      this.api.numOfQustion = loader.results.length -1
+      this.api.numOfQuestion = loader.results.length -1
     }).then( () => {
       setTimeout(() => {
         this.finish = true
