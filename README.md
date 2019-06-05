@@ -1,6 +1,4 @@
 # Quiz
 
-Hello Comm-IT :)
-My name is Amit Jascourt - im submitting in the Code for your application test you sent me... 
-
-i hope you enjoy it - looking forward to hearing from you :+1:
+Hello :)
+My name is Amit Jascourt - i hope you enjoy this code :+1:
